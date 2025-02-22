@@ -1,4 +1,4 @@
-# 💥 yOUTUBE CLONE 
+# 💥 YOUTUBE CLONE 
 
 ---
 
