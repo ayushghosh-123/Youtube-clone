@@ -10,9 +10,14 @@ function Feed() {
   const [videos, setVideos] = useState([])
 
   useEffect(() => {
-    fetchFromAPI(`search?snippet&q=${selectedCategory}`)
-    .then((data)=> setVideos(data.items))
-  }, [selectedCategory])  
+    const timeout = setTimeout(() => {
+      fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+        .then((data) => setVideos(data.items))
+        .catch((error) => console.log("Error fetching videos:", error));
+    }, 1000); // Delay of 1 second to prevent hitting rate limits
+  
+    return () => clearTimeout(timeout); // Cleanup function
+  }, [selectedCategory]);
 
 
   return (
