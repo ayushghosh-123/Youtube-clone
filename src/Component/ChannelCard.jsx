@@ -11,7 +11,9 @@ function ChannelCard({ channelDetail }) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        width: "100%",
+        width: { xs: '320px', md: '320px'},
+        height: '326px',
+        margin: 'auto'
       }}
     >
       <Link to={`/channel/${channelDetail?.id?.channelId || channelDetail?.id || demoChannelTitle}`}>

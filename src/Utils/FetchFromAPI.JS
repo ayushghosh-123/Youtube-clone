@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const BASE_URL = "https://youtube-v31.p.rapidapi.com";
+const BASE_URL = "https://fast-youtube-data-api.p.rapidapi.com";
 
 const options = {
   params: {
     relatedToVideoId: "7ghhRHRP6t4",
     part: "id,snippet",
     type: "video",
-    maxResults: "50",
+    maxResults: "100",
   },
   headers: {
     "x-rapidapi-key": import.meta.env.VITE_YOUTUBE_API_KEY, // Corrected
@@ -15,7 +15,7 @@ const options = {
   },
 };
 
-export const fetchFromAPI = async (url) => {
+export  const fetchFromAPI = async (url) => {
   try {
     const { data } = await axios.get(`${BASE_URL}/${url}`, options); // Included options
     return data;
